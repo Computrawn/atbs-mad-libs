@@ -1,8 +1,7 @@
 #! python3
 # mad_libs.py — An exercise in reading and writing to text files.
 
-import os
-import pathlib
+import re
 import shelve
 
 
@@ -10,26 +9,37 @@ user_name = input("Please name your file: ")
 file_name = user_name + ".txt"
 
 
-def new_file():
+def copy_template():
     with open("mad_temp.txt", "r") as rf:
         with open(file_name, "w") as wf:
             for line in rf:
                 wf.write(line)
 
 
+def save_input():
+    shelf_file = shelve.open("user_data")
+    user_list = [
+        input("Please enter an adjective: "),
+        input("Please enter a noun: "),
+        input("Please enter a present-tense verb: "),
+        input("Please enter a noun: "),
+    ]
+    shelf_file["user_list"] = user_list
+    print(list(shelf_file.values()))
+    shelf_file.close()
+
+
 def open_file():
     with open(file_name, "r") as f:
-        print(f.name)
-        print(f.read())
+        content = f.read()
+        noun_regex = re.compile(r"NOUN")
+        mo = noun_regex.search(content)
+        print(mo.group())
+
+    # print(f.name)
+    # print(f.read())
 
 
-def mad_input():
-    # input_1 = input("Please enter an adjective: ")
-    # input_2 = input("Please enter a noun: ")
-    # input_3 = input("Please enter an adverb: ")
-    # input_4 = input("Please enter a verb: ")
-    pass
-
-
-new_file()
+copy_template()
+save_input()
 open_file()
