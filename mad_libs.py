@@ -10,7 +10,7 @@ file_name = user_name + ".txt"
 
 
 def copy_template():
-    """opens template file and writes it to user-define text file"""
+    """opens template file and writes it to user-defined text file"""
     with open("mad_temp.txt", "r", encoding="utf-8") as rf:
         with open(file_name, "w", encoding="utf-8") as wf:
             for line in rf:
@@ -19,7 +19,7 @@ def copy_template():
 
 def mad_lib():
     """uses regexes to search for NOUN, ADJECTIVE, VERB and ADVERB in file
-    and replaces them with user_data.db values"""
+    and replaces them with user input"""
     with open(file_name, "r", encoding="utf-8") as rf:
         content = rf.read()
         with open(file_name, "w", encoding="utf-8") as wf:
@@ -27,7 +27,6 @@ def mad_lib():
             mo_madlib = madlib_regex.sub(
                 input("Please type an adjective: "), content, count=1
             )
-            # print(mo_madlib)
             wf.write(mo_madlib)
 
     with open(file_name, "r", encoding="utf-8") as rf:
@@ -37,7 +36,6 @@ def mad_lib():
             mo_madlib = madlib_regex.sub(
                 input("Please type a noun: "), content, count=1
             )
-            # print(mo_madlib)
             wf.write(mo_madlib)
 
     with open(file_name, "r", encoding="utf-8") as rf:
@@ -47,7 +45,6 @@ def mad_lib():
             mo_madlib = madlib_regex.sub(
                 input("Please type a past-tense verb: "), content, count=1
             )
-            # print(mo_madlib)
             wf.write(mo_madlib)
 
     with open(file_name, "r", encoding="utf-8") as rf:
@@ -57,8 +54,11 @@ def mad_lib():
             mo_madlib = madlib_regex.sub(
                 input("Please type a noun: "), content, count=1
             )
-            # print(mo_madlib)
             wf.write(mo_madlib)
+
+    with open(file_name, "r", encoding="utf-8") as rf:
+        content = rf.read()
+        print(content)
 
 
 copy_template()
