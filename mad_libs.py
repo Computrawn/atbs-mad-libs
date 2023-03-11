@@ -3,8 +3,8 @@
 
 import re
 
-user_name = input("Please name your file: ")
-file_name = user_name + ".txt"
+user_input = input("Please name your file: ")
+file_name = f"{user_input}.txt"
 
 
 def copy_template():
@@ -22,8 +22,9 @@ def mad_lib():
         content = rf.read()
         madlib_regex = re.compile(r"ADJECTIVE|NOUN|ADVERB|VERB")
         search = madlib_regex.findall(content)
+        length = len(search)
 
-    for word in range(len(search)):
+    for word in range(length):
         if search[word] == "NOUN":
             with open(file_name, "r", encoding="utf-8") as rf:
                 content = rf.read()
@@ -59,39 +60,6 @@ def mad_lib():
                         input("Please type an adverb: "), content, count=1
                     )
                     wf.write(adv_madlib)
-
-    # with open(file_name, "r", encoding="utf-8") as rf:
-    #     content = rf.read()
-    #     with open(file_name, "w", encoding="utf-8") as wf:
-    #         madlib_regex = re.compile(r"NOUN")
-    #         search = madlib_regex.search(content)
-    #         if search != None:
-    #             noun_madlib = madlib_regex.sub(
-    #                 input("Please type a noun: "), content, count=1
-    #             )
-    #             wf.write(noun_madlib)
-
-    # with open(file_name, "r", encoding="utf-8") as rf:
-    #     content = rf.read()
-    #     with open(file_name, "w", encoding="utf-8") as wf:
-    #         verb_regex = re.compile(r"VERB")
-    #         search = verb_regex.search(content)
-    #         if search != None:
-    #             verb_madlib = verb_regex.sub(
-    #                 input("Please type a past-tense verb: "), content, count=1
-    #             )
-    #             wf.write(verb_madlib)
-
-    # with open(file_name, "r", encoding="utf-8") as rf:
-    #     content = rf.read()
-    #     with open(file_name, "w", encoding="utf-8") as wf:
-    #         adverb_regex = re.compile(r"ADVERB")
-    #         search = adverb_regex.search(content)
-    #         if search != None:
-    #             adv_madlib = adverb_regex.sub(
-    #                 input("Please type an adverb: "), content, count=1
-    #             )
-    #             wf.write(adv_madlib)
 
     with open(file_name, "r", encoding="utf-8") as rf:
         content = rf.read()

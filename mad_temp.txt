@@ -1,2 +1,3 @@
-The ADJECTIVE panda walked to the NOUN and then VERB. 
+The ADJECTIVE panda walked to the NOUN and then ADVERB VERB. 
 A nearby NOUN was unaffected by these events.
+However, the NOUN took issue with the ADJECTIVE commotion.

@@ -1,0 +1,4 @@
+Ideas for improvement:
+* Create mutliple templates and access them randomly from a directory.
+* Add variants to word types (proper for nouns, past-tense for verbs, etc).
+* Create a simple GUI.
