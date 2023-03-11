@@ -2,8 +2,6 @@
 """mad_libs.py — An exercise in reading and writing to text files."""
 
 import re
-import shelve
-
 
 user_name = input("Please name your file: ")
 file_name = user_name + ".txt"
