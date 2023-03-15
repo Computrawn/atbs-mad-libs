@@ -1,18 +1,18 @@
 #! python3
 """mad_libs.py — An exercise in reading and writing to text files."""
 
+import os
 import re
+import shutil
 
-user_input = input("Please name your file: ")
-file_name = f"{user_input}.txt"
+file_name = f'{input("Please name your file: ")}.txt'
 
 
 def copy_template():
     """opens template file and writes it to user-defined text file"""
-    with open("mad_temp.txt", "r", encoding="utf-8") as rf:
-        with open(file_name, "w", encoding="utf-8") as wf:
-            for line in rf:
-                wf.write(line)
+    tmp_file = f"{os.getcwd()}/mad_temp.txt"
+    renamed_file = f"{os.getcwd()}/{file_name}"
+    shutil.copy(tmp_file, renamed_file)
 
 
 def mad_lib():
