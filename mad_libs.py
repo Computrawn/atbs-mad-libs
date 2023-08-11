@@ -1,9 +1,18 @@
-#! python3
-"""mad_libs.py — An exercise in reading and writing to text files."""
+#!/usr/bin/env python3
+# mad_libs.py — An exercise in reading and writing files.
+# For more information, see README.md
 
+import logging
 import os
 import re
 import shutil
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename="logging.txt",
+    format="%(asctime)s -  %(levelname)s -  %(message)s",
+)
+logging.disable(logging.CRITICAL)  # Note out to enable logging.
 
 file_name = f'{input("Please name your file: ")}.txt'
 
@@ -66,5 +75,10 @@ def mad_lib():
         print(content)
 
 
-copy_template()
-mad_lib()
+def main() -> None:
+    copy_template()
+    mad_lib()
+
+
+if __name__ == "__main__":
+    main()
